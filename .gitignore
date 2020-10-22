@@ -19,3 +19,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+yarn.lock
+package-lock.json
+
+# Visual Studio code configuration
+.vscode/ 
