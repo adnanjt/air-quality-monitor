@@ -32,7 +32,7 @@ import RTLPlugin from "./RTLPlugin";
 import Notify from "@/components/NotificationPlugin";
 import i18n from "./i18n"
 import SideBar from "@/components/SidebarPlugin";
-
+import { firestorePlugin } from 'vuefire';
 
 Vue.config.productionTip = false;
 
@@ -53,6 +53,7 @@ Vue.use(GlobalDirectives);
 Vue.use(RTLPlugin);
 Vue.use(SideBar);
 Vue.use(Notify);
+Vue.use(firestorePlugin);
 
 new Vue({
   router,
