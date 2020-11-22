@@ -11,6 +11,8 @@
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
     "firebase": "^8.0.2",
+    "firebase-tools": "^8.16.2",
+    "global": "^4.4.0",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
     "vue-click-outside": "^1.0.7",

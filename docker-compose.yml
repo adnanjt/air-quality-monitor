@@ -14,4 +14,5 @@ services:
       - '/app/node_modules'
     ports:
       - '3380:8080'
+      - '9005:9005'
 
