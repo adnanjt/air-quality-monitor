@@ -28,7 +28,7 @@ let components = {
   Notifications
 };
 
-export{
+export {
   Card,
   BaseInput,
   SidebarPlugin,
@@ -42,4 +42,4 @@ export{
   CloseButton,
   DropDown,
   Notifications
-}
+};

@@ -20,13 +20,13 @@
       </ul>
       <div class="copyright">
         &copy;
-        {{ new Date().getFullYear() }} made with <i class="tim-icons icon-heart-2"></i> by
-        <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+        {{ new Date().getFullYear() }} made with
+        <i class="tim-icons icon-heart-2"></i> by
+        <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a
+        better web.
       </div>
     </div>
   </footer>
 </template>
-<script>
-</script>
-<style>
-</style>
+<script></script>
+<style></style>

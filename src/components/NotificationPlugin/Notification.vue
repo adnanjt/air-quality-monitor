@@ -1,69 +1,82 @@
 <template>
-  <div @click="tryClose"
-       data-notify="container"
-       class="alert open"
-       :class="[{'alert-with-icon': icon}, verticalAlign, horizontalAlign, alertType]"
-       role="alert"
-       :style="customPosition">
+  <div
+    @click="tryClose"
+    data-notify="container"
+    class="alert open"
+    :class="[
+      { 'alert-with-icon': icon },
+      verticalAlign,
+      horizontalAlign,
+      alertType
+    ]"
+    role="alert"
+    :style="customPosition"
+  >
     <button
-        v-if="showClose"
-        type="button"
-        aria-hidden="true"
-        class="close col-xs-1"
-        data-notify="dismiss"
-        @click="close">
-        <i class="tim-icons icon-simple-remove"></i>
+      v-if="showClose"
+      type="button"
+      aria-hidden="true"
+      class="close col-xs-1"
+      data-notify="dismiss"
+      @click="close"
+    >
+      <i class="tim-icons icon-simple-remove"></i>
     </button>
 
     <span v-if="icon" data-notify="icon" :class="['alert-icon', icon]"></span>
     <div data-notify="message">
-      <div v-if="title" class="title"><b>{{title}}<br/></b></div>
+      <div v-if="title" class="title">
+        <b>{{ title }}<br /></b>
+      </div>
       <div v-if="message" v-html="message"></div>
-      <content-render v-if="!message && component" :component="component"></content-render>
+      <content-render
+        v-if="!message && component"
+        :component="component"
+      ></content-render>
     </div>
   </div>
 </template>
 <script>
-export default{
-  name: 'notification',
+export default {
+  name: "notification",
   components: {
-    contentRender:{
-      props: ['component'],
-      render(h){
-        return h(this.component)
+    contentRender: {
+      props: ["component"],
+      render(h) {
+        return h(this.component);
       }
     }
   },
-  props:{
+  props: {
     message: String,
     title: String,
     icon: String,
-    verticalAlign:{
+    verticalAlign: {
       type: String,
-      default: 'top',
+      default: "top",
       validator: value => {
-        let acceptedValues = ['top', 'bottom'];
+        let acceptedValues = ["top", "bottom"];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
-    horizontalAlign:{
+    horizontalAlign: {
       type: String,
-      default: 'right',
+      default: "right",
       validator: value => {
-        let acceptedValues = ['left','center','right'];
+        let acceptedValues = ["left", "center", "right"];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
     type: {
       type: String,
-      default: 'info',
+      default: "info",
       validator: value => {
         let acceptedValues = [
-          'info',
-          'primary',
-          'danger',
-          'warning',
-          'success'
+          "info",
+          "primary",
+          "danger",
+          "warning",
+          "success"
         ];
         return acceptedValues.indexOf(value) !== -1;
       }
@@ -82,24 +95,24 @@ export default{
     component: {
       type: [Object, Function]
     },
-    closeOnClick:{
+    closeOnClick: {
       type: Boolean,
       default: true
     },
     clickHandler: Function,
-    showClose:{
+    showClose: {
       type: Boolean,
       default: true
     }
   },
-  computed:{
+  computed: {
     hasIcon() {
       return this.icon && this.icon.length > 0;
     },
-    alertType(){
+    alertType() {
       return `alert-${this.type}`;
     },
-    customPosition(){
+    customPosition() {
       let initialMargin = 20;
       let alertHeight = this.elmHeight + 10;
       let sameAlertsCount = this.$notifications.state.filter(alert => {
@@ -114,7 +127,7 @@ export default{
       }
       let pixels = (sameAlertsCount - 1) * alertHeight + initialMargin;
       let styles = {};
-      if (this.verticalAlign === 'top') {
+      if (this.verticalAlign === "top") {
         styles.top = `${pixels}px`;
       } else {
         styles.bottom = `${pixels}px`;
@@ -122,15 +135,15 @@ export default{
       return styles;
     }
   },
-  methods:{
-    close(){
-      this.$emit('close', this.timestamp);
+  methods: {
+    close() {
+      this.$emit("close", this.timestamp);
     },
-    tryClose(evt){
-      if(this.clickHandler){
-        this.clickHandler(evt,this);
+    tryClose(evt) {
+      if (this.clickHandler) {
+        this.clickHandler(evt, this);
       }
-      if(this.closeOnClick){
+      if (this.closeOnClick) {
         this.close();
       }
     }
@@ -140,13 +153,13 @@ export default{
       elmHeight: 0
     };
   },
-  mounted(){
+  mounted() {
     this.elmHeight = this.$el.clientHeight;
     if (this.timeout) {
       setTimeout(this.close, this.timeout);
     }
   }
-}
+};
 </script>
 <style lang="scss">
 .notifications .alert {
@@ -154,7 +167,7 @@ export default{
   z-index: 10000;
   text-align: left;
 
-  &[data-notify='container'] {
+  &[data-notify="container"] {
     width: 480px;
     cursor: pointer;
   }

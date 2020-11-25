@@ -9,54 +9,54 @@ import TableList from "@/pages/TableList.vue";
 import SensorPointsTable from "@/pages/SensorPointsTable.vue";
 import Typography from "@/pages/Typography.vue";
 
-
-const routes = [{
-  path: "/",
-  component: DashboardLayout,
-  redirect: "dashboard",
-  children:[
-    {
-      path: "dashboard",
-      name: "Dashboard",
-      component: Dashboard
-    },
-    {
-      path: "icons",
-      name: "Icons",
-      component: Icons
-    },
-    {
-      path: "maps",
-      name: "Maps",
-      component: Maps
-    },
-    {
-      path: "notifications",
-      name: "Notifications",
-      component: Notifications
-    },
-    {
-      path: "user",
-      name: "User Profile",
-      component: UserProfile
-    },
-    {
-      path: "table",
-      name: "Table List",
-      component: TableList
-    },
-    {
-      path: "table-points",
-      name: "Table Points",
-      component: SensorPointsTable
-    },
-    {
-      path: "typography",
-      name: "Typography",
-      component: Typography
-    }
-  ]
-
-}];
+const routes = [
+  {
+    path: "/",
+    component: DashboardLayout,
+    redirect: "dashboard",
+    children: [
+      {
+        path: "dashboard",
+        name: "Monitoreo de aire",
+        component: Dashboard
+      },
+      {
+        path: "icons",
+        name: "Icons",
+        component: Icons
+      },
+      {
+        path: "maps",
+        name: "Maps",
+        component: Maps
+      },
+      {
+        path: "notifications",
+        name: "Notifications",
+        component: Notifications
+      },
+      {
+        path: "user",
+        name: "User Profile",
+        component: UserProfile
+      },
+      {
+        path: "table",
+        name: "Table List",
+        component: TableList
+      },
+      {
+        path: "table-points",
+        name: "Table lecturas",
+        component: SensorPointsTable
+      },
+      {
+        path: "typography",
+        name: "Typography",
+        component: Typography
+      }
+    ]
+  }
+];
 
 export default routes;

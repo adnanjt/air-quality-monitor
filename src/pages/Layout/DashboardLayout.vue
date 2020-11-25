@@ -7,25 +7,16 @@
       <sidebar-link to="/dashboard">
         <i class="tim-icons icon-chart-pie-36"></i>
         <template v-if="!isRTL">
-          <p>Dashboard</p>
+          <p>Monitoreo de aire</p>
         </template>
         <template v-else>
           <p>لوحة القيادة</p>
         </template>
       </sidebar-link>
-      <sidebar-link to="/table">
-        <i class="tim-icons icon-puzzle-10"></i>
-        <template v-if="!isRTL">
-          <p>Table List</p>
-        </template>
-        <template v-else>
-          <p>قائمة الجدول</p>
-        </template>
-      </sidebar-link>
       <sidebar-link to="/table-points">
         <i class="tim-icons icon-puzzle-10"></i>
         <template v-if="!isRTL">
-          <p>Table Sensor Points List</p>
+          <p>Tabla de lecturas</p>
         </template>
         <template v-else>
           <p>قائمة الجدول</p>
@@ -47,7 +38,6 @@
 import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./DashboardContent.vue";
-import MobileMenu from "./MobileMenu.vue";
 import SideBar from "@/components/SidebarPlugin/SideBar.vue";
 import SidebarLink from "@/components/SidebarPlugin/SidebarLink.vue";
 
@@ -56,7 +46,6 @@ export default {
     TopNavbar,
     DashboardContent,
     ContentFooter,
-    MobileMenu,
     SideBar,
     SidebarLink
   },

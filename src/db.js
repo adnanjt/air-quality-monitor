@@ -1,9 +1,9 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 // Get a Firestore instance
 export const db = firebase
-  .initializeApp({ projectId: 'air-quality-api-9d148' })
+  .initializeApp({ projectId: "iot-air-monitoring" })
   .firestore();
 
 // Export types that exists in Firestore
