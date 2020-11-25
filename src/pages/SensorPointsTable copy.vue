@@ -8,22 +8,23 @@
           </template>
           <div class="table-responsive text-left">
             <base-table :data="tableData"
-                        :columns="columns"
+                        :columns="columns" 
                         thead-classes="text-primary" 
                         name="points-table">
                     <template slot="columns">
                         <th class="text-center">#</th>
-                        <th>ID</th>
-                        <th>Valor sensado</th>
-                        <th>Peligro de gas</th>
-                        <th class="text-right">Fecha de registro</th>
+                        <th>Name</th>
+                        <th>Job Position</th>
+                        <th>Since</th>
+                        <th class="text-right">Salary</th>
                         <th class="text-right">Actions</th>
                     </template>  
                     <template slot-scope="{row}">
-                        <td>{{row.id_sensor}}</td>
-                        <td>{{row.valor}}</td>
-                        <td>{{row.gas_peligro}}</td>
-                        <td>{{row.tiempo}}</td>
+                        <td>{{row.id}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.job}}</td>
+                        <td>{{row.since}}</td>
+                        <td>{{row.salary}}</td>
                         <td class="td-actions text-right">
                             <base-button type="info" size="sm" icon>
                             <i class="tim-icons icon-single-02"></i>
@@ -52,15 +53,8 @@ import {
 
 import BaseTable from "@/components/BaseTable";
 
-import {
-  GET_READ_LIST,
-  SAVE_READ,
-  EDIT_READ,
-  DELETE_READ
-} from "@/services/store/firestore.service";
 
-
-
+import { db } from '@/db'
 
 export default {
   components:{
@@ -70,7 +64,7 @@ export default {
   data() {
     this.sendFirestore();
     return {
-      columns: ["id", "name", "job", "since", "actions"],
+      columns: ["id", "name", "job", "since", "salary", "actions"],
       tableData: [
         {
           id: 1,
@@ -104,12 +98,8 @@ export default {
         gas_peligro: false,
         id_sensor: 1,
         tiempo: new Date(),
-        valor: 69
+        valor: 0
       };
-
-      this.$store.dispatch(GET_READ_LIST).then((result) => {
-        result.forEach(element => console.log(element.data()));
-      });
     }
   }
 }
